@@ -10,6 +10,7 @@ Projeto Java Web CRUD de usuários
 - Maven
 - Jquery
 - Bootstrap
+- HTML 5
 - javascript puro
 - CSS 3
 - DataTable
