@@ -11,3 +11,5 @@ Projeto Java Web CRUD de usuários
 - Bootstrap
 - javascript puro
 - CSS 3
+- DataTable
+- AJAX
