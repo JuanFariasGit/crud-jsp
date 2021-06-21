@@ -1,5 +1,5 @@
 # crud-jsp
-## Projeto Java Web CRUD de usuários 
+Projeto Java Web CRUD de usuários 
 
 ## Tecnologias utilizadas
 - JSP
