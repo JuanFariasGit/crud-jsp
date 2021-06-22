@@ -7,7 +7,7 @@
   <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
   <properties>
    <property name="javax.persistence.jdbc.driver"   value="org.hsqldb.jdbcDriver"                                />
-   <property name="javax.persistence.jdbc.url"      value="jdbc:hsqldb:file:C:/Users/Juan Farias/banco/crud-jsp" />
+   <property name="javax.persistence.jdbc.url"      value="jdbc:hsqldb:mem:test"                                 />
    <property name="javax.persistence.jdbc.user"     value="sa"                                                   />
    <property name="javax.persistence.jdbc.password" value=""                                                     />
 
