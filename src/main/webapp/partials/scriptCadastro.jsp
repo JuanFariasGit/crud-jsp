@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	const url = location.origin + "/" + location.href.split("/")[3] + "/usuarios"
+	const url = location.origin + "/usuarios"
 	let list = []
 	
 	const addUser = (e) => {
