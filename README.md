@@ -1,5 +1,13 @@
-# crud-jsp
-Projeto Java Web CRUD de usuários 
+# Projeto Java Web CRUD de usuários 
+
+### Disponível em https://app-crud-jsp.herokuapp.com/
+
+Para executar projeto em localhost, digite os seguintes comandos no terminal:
+~~~
+mvn package
+
+java -jar target/dependency/webapp-runner.jar target/*.war
+~~~
 
 ## Tecnologias utilizadas
 - Java 8
