@@ -2,7 +2,7 @@
 
 ### Disponível em https://app-crud-jsp.herokuapp.com/
 
-Para executar projeto em localhost, digite os seguintes comandos no terminal:
+Para executar o projeto em localhost, digite os seguintes comandos no terminal:
 ~~~
 mvn package
 
