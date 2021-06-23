@@ -10,6 +10,11 @@ mvn package
 java -jar target/dependency/webapp-runner.jar target/*.war
 ~~~
 
+Após executar os comandos acima, basta apenas abrir o seguinte endereço:
+~~~
+http://localhost:8080/
+~~~
+
 ## Tecnologias utilizadas
 - Java 8
 - JSP
