@@ -5,8 +5,7 @@
 Para executar o projeto em localhost, digite os seguintes comandos no terminal:
 ~~~
 mvn package
-~~~
-~~~
+
 java -jar target/dependency/webapp-runner.jar target/*.war
 ~~~
 
