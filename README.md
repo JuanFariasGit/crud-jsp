@@ -18,7 +18,7 @@ http://localhost:8080/
 - Java 8
 - JSP
 - Servlets
-- JPA
+- JPA/Hibernate
 - HSQLDB
 - Maven
 - Jquery
