@@ -1,34 +1,31 @@
 html, body {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 main {
-	flex: 1 0 auto;
-	margin: 0.5rem;
+    flex: 1 0 auto;
+    margin: 0.5rem;
 }
 
 #modal .modal-header {
-	margin: 0 auto !important;
+    margin: 0 auto !important;
 }
 
 #modal .modal-dialog {
-	min-width: 800px !important;
+    min-width: 800px !important;
 }
 
 ul li {
-	list-style: none;
+    list-style: none;
 }
 
-.edit {
-	cursor: pointer;
+#logout {
+    cursor: pointer;
+    color: #007bff
 }
 
-.edit:hover {
-	text-decoration: underline
-}
-
-.dtr-control p {
-	margin-left: 1rem;
+#logout:hover {
+    text-decoration: underline
 }

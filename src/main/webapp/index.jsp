@@ -20,12 +20,11 @@
 
     <jsp:body>
         <div class="d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-primary mb-2"
-                    onclick="openModalFormAdd()">
+            <button type="button" class="btn btn-primary mb-2" onclick="openModalFormAdd()">
                 <i class="fas fa-plus-circle fa-lg"></i>
             </button>
             <div>
-                <a class="mb-0" href="/Logout">Sair</a>
+                <span id="logout" onclick="logout()">Sair</span>
             </div>
         </div>
         <table id="tabela"

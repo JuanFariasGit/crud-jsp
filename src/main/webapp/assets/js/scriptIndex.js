@@ -156,3 +156,12 @@ const delUser = (id) => {
     });
 };
 
+const logout = () => {
+    $.ajax({
+        "method": "POST",
+        "url": "/Logout",
+        success: function () {
+            location.replace(location.origin + "/login.jsp");
+        }
+    });
+};
