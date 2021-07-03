@@ -6,16 +6,13 @@
             <div class="modal-body">
                 <form id="form" method="post">
                     <div class="form-group">
-                        <label for="nome">Nome:</label> <input class="form-control"
-                                                               type="text" id="name" name="name">
+                        <label for="nome">Nome:</label> <input class="form-control" type="text" id="name" name="name">
                     </div>
                     <div class="form-group">
-                        <label for="nome">E-mail:</label> <input class="form-control"
-                                                                 type="email" id="email" name="email">
+                        <label for="nome">E-mail:</label> <input class="form-control" type="email" id="email" name="email">
                     </div>
                     <div class="form-group">
-                        <label for="nome">Senha:</label> <input class="form-control"
-                                                                type="password" id="password" name="password">
+                        <label for="nome">Senha:</label> <input class="form-control" type="password" id="password" name="password">
                     </div>
                     <label>Telefones:</label>
                     <button id="btn-telelefone" type="button" class="btn btn-primary mb-2"

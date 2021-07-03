@@ -1,3 +1,5 @@
+let list = [];
+
 const addTelefone = (e) => {
     e.preventDefault();
     const data = new FormData(document.getElementById("form-telefone"));

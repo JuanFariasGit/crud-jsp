@@ -6,16 +6,13 @@
             <div class="modal-body">
                 <form id="form-telefone">
                     <div class="form-group">
-                        <label for="ddd">DDD:</label> <input class="form-control"
-                                                             type="text" id="ddd" name="ddd">
+                        <label for="ddd">DDD:</label> <input class="form-control" type="text" id="ddd" name="ddd">
                     </div>
                     <div class="form-group">
-                        <label for="numero">Número:</label> <input class="form-control"
-                                                                   type="text" id="numero" name="numero">
+                        <label for="numero">Número:</label> <input class="form-control" type="text" id="numero" name="numero">
                     </div>
                     <div class="form-group">
-                        <label for="tipo">Tipo:</label> <input class="form-control"
-                                                               type="text" id="tipo" name="tipo">
+                        <label for="tipo">Tipo:</label> <input class="form-control" type="text" id="tipo" name="tipo">
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary" onclick="addTelefone(event)">ADICIONAR</button>
                 </form>

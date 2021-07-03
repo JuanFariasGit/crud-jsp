@@ -8,6 +8,11 @@
         <link rel="stylesheet" href="assets/css/style.css">
     </jsp:attribute>
 
+    <jsp:attribute name="script">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="assets/js/scriptLogin.js"></script>
+    </jsp:attribute>
+
     <jsp:body>
         <div class="container d-flex justify-content-center align-items-center" style="max-width: 600px;">
             <div class="container-fluid">
@@ -17,7 +22,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Login</h3>
                             </div>
-                            <form method="post" action="Login">
+                            <form id="form" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="nome">E-mail:</label> <input class="form-control" type="email" id="email" name="email">
@@ -25,7 +30,7 @@
                                     <div class="form-group">
                                         <label for="nome">Senha:</label> <input class="form-control" type="password" id="password" name="password">
                                     </div>
-                                    <button type="submit" class="btn btn-sm btn-primary">ENTRAR</button>
+                                    <button type="submit" class="btn btn-sm btn-primary" onclick="login(event)">ENTRAR</button>
                                 </div>
                             </form>
                             <div class="p-3">

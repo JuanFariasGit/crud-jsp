@@ -1,10 +1,7 @@
 package br.com.dominio.servlets.autenticacao;
 
 import br.com.dominio.dao.UsuarioDao;
-import br.com.dominio.dao.UsuarioDaoException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,9 +25,8 @@ public class LoginServlet extends HttpServlet {
         try {
             if (usuarioDao.usuarioExiste(email, senha)) {
                 session.setAttribute("login-crud-jsp", email);
-                resp.sendRedirect("index.jsp");
             } else {
-                resp.sendRedirect("login.jsp");
+                resp.getWriter().write("E-mail e/ou senha invalido(s)!");
             }
         } catch (Exception e) {
             throw new ServletException(e);

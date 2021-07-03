@@ -1,5 +1,4 @@
 const url = location.origin + "/usuarios";
-let list = [];
 
 const addUser = (e) => {
     e.preventDefault();
