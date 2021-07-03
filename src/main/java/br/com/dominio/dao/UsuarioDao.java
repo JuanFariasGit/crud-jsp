@@ -14,13 +14,13 @@ public class UsuarioDao {
     EntityManager manager = JpaUtil.getEntityManager();
     CriptografiaUtil cript = new CriptografiaUtil();
 
-    public void criar(Usuario usuario) {
+    public void criar(Usuario usuario) throws UsuarioDaoException {
         try {
             manager.getTransaction().begin();
             manager.persist(usuario);
             manager.getTransaction().commit();
         } catch (Exception e) {
-            e.getMessage();
+            throw new UsuarioDaoException(e);
         }
     }
 
@@ -42,24 +42,24 @@ public class UsuarioDao {
         return usuarios;
     }
 
-    public void atualizar(Usuario usuario) {
+    public void atualizar(Usuario usuario) throws UsuarioDaoException {
         try {
             manager.getTransaction().begin();
             manager.merge(usuario);
             manager.getTransaction().commit();
         } catch (Exception e) {
-            e.getMessage();
+            throw new UsuarioDaoException(e);
         }
     }
 
-    public void excluir(Integer id) {
+    public void excluir(Integer id) throws UsuarioDaoException {
         try {
             Usuario usuario = manager.find(Usuario.class, id);
             manager.getTransaction().begin();
             manager.remove(usuario);
             manager.getTransaction().commit();
         } catch (Exception e) {
-            e.getMessage();
+            throw new UsuarioDaoException(e);
         }
 
     }
