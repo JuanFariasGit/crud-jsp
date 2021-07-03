@@ -1,10 +1,7 @@
 package br.com.dominio.servlets.usuario;
 
 import br.com.dominio.dao.UsuarioDao;
-import br.com.dominio.dao.UsuarioDaoException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +18,8 @@ public class DelServlet extends HttpServlet {
         UsuarioDao usuarioDao = new UsuarioDao();
         try {
             usuarioDao.excluir(Integer.parseInt(req.getParameter("id")));
-        } catch (UsuarioDaoException ex) {
-            Logger.getLogger(DelServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 
