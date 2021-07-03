@@ -18,6 +18,7 @@ public class UsuarioDao implements IUsuarioDao {
         this.manager = JpaUtil.getEntityManager();
     }
 
+    @Override
     public void criar(Usuario usuario) throws UsuarioDaoException {
         try {
             manager.getTransaction().begin();
@@ -30,6 +31,7 @@ public class UsuarioDao implements IUsuarioDao {
         }
     }
 
+    @Override
     public Boolean usuarioExiste(String email, String senha) {
         String senhaMd5 = cript.md5(senha);
 
@@ -42,12 +44,14 @@ public class UsuarioDao implements IUsuarioDao {
         return res == 1;
     }
 
+    @Override
     public List<Usuario> pegarTodos() {
         List<Usuario> usuarios;
         usuarios = manager.createQuery("select usuario from Usuario usuario", Usuario.class).getResultList();
         return usuarios;
     }
 
+    @Override
     public void atualizar(Usuario usuario) throws UsuarioDaoException {
         try {
             manager.getTransaction().begin();
@@ -60,6 +64,7 @@ public class UsuarioDao implements IUsuarioDao {
         }
     }
 
+    @Override
     public void excluir(Integer id) throws UsuarioDaoException {
         try {
             Usuario usuario = manager.find(Usuario.class, id);
