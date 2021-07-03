@@ -1,7 +1,10 @@
 package br.com.dominio.servlets.autenticacao;
 
 import br.com.dominio.dao.UsuarioDao;
+import br.com.dominio.dao.UsuarioDaoException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,11 +25,15 @@ public class LoginServlet extends HttpServlet {
         String senha = req.getParameter("password");
         HttpSession session = req.getSession();
 
-        if (usuarioDao.usuarioExiste(email, senha)) {
-            session.setAttribute("login-crud-jsp", email);
-            resp.sendRedirect("index.jsp");
-        } else {
-            resp.sendRedirect("login.jsp");
+        try {
+            if (usuarioDao.usuarioExiste(email, senha)) {
+                session.setAttribute("login-crud-jsp", email);
+                resp.sendRedirect("index.jsp");
+            } else {
+                resp.sendRedirect("login.jsp");
+            }
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }
