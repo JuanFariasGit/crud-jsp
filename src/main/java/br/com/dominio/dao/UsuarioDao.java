@@ -48,6 +48,8 @@ public class UsuarioDao implements IUsuarioDao {
         return res == 1;
         } catch (Exception e) {
             throw new UsuarioDaoException(e.getMessage());
+        } finally {
+            manager.close();
         }
     }
 
@@ -59,8 +61,6 @@ public class UsuarioDao implements IUsuarioDao {
             return usuarios;
         } catch (Exception e) {
             throw new UsuarioDaoException(e.getMessage());
-        } finally {
-            manager.close();
         }
     }
 
