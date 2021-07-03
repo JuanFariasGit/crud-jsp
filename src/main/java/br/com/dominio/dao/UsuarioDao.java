@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.dominio.model.Usuario;
 import br.com.dominio.util.CriptografiaUtil;
+import br.com.dominio.util.ExceptionUtil;
 import br.com.dominio.util.JpaUtil;
 
 public class UsuarioDao implements IUsuarioDao {
@@ -19,25 +20,25 @@ public class UsuarioDao implements IUsuarioDao {
     }
 
     @Override
-    public void criar(Usuario usuario) throws UsuarioDaoException {
+    public void criar(Usuario usuario) throws ExceptionUtil {
         if (usuario == null) {
-            throw new UsuarioDaoException("O valor passado não pode ser nulo.");
+            throw new ExceptionUtil("O valor passado não pode ser nulo.");
         }
         try {
             manager.getTransaction().begin();
             manager.persist(usuario);
             manager.getTransaction().commit();
         } catch (Exception e) {
-            throw new UsuarioDaoException("Erro ao adicionar dados: " + e.getMessage());
+            throw new ExceptionUtil("Erro ao adicionar dados: " + e.getMessage());
         } finally {
             manager.close();
         }
     }
 
     @Override
-    public Boolean usuarioExiste(String email, String senha) throws UsuarioDaoException {
+    public Boolean usuarioExiste(String email, String senha) throws ExceptionUtil {
         if (email == null && senha == null) {
-            throw new UsuarioDaoException("Os valores passados não podem ser nulo.");
+            throw new ExceptionUtil("Os valores passados não podem ser nulo.");
         }
         String senhaMd5 = cript.md5(senha);
         try {
@@ -49,41 +50,41 @@ public class UsuarioDao implements IUsuarioDao {
 
             return res == 1;
         } catch (Exception e) {
-            throw new UsuarioDaoException(e.getMessage());
+            throw new ExceptionUtil(e.getMessage());
         }
     }
 
     @Override
-    public List<Usuario> pegarTodos() throws UsuarioDaoException {
+    public List<Usuario> pegarTodos() throws ExceptionUtil {
         try {
             List<Usuario> usuarios;
             usuarios = manager.createQuery("select usuario from Usuario usuario", Usuario.class).getResultList();
             return usuarios;
         } catch (Exception e) {
-            throw new UsuarioDaoException(e.getMessage());
+            throw new ExceptionUtil(e.getMessage());
         }
     }
 
     @Override
-    public void atualizar(Usuario usuario) throws UsuarioDaoException {
+    public void atualizar(Usuario usuario) throws ExceptionUtil {
         if (usuario == null) {
-            throw new UsuarioDaoException("O valor passado não pode ser nulo.");
+            throw new ExceptionUtil("O valor passado não pode ser nulo.");
         }
         try {
             manager.getTransaction().begin();
             manager.merge(usuario);
             manager.getTransaction().commit();
         } catch (Exception e) {
-            throw new UsuarioDaoException("Erro ao atualizar dados: " + e.getMessage());
+            throw new ExceptionUtil("Erro ao atualizar dados: " + e.getMessage());
         } finally {
             manager.close();
         }
     }
 
     @Override
-    public void excluir(Integer id) throws UsuarioDaoException {
+    public void excluir(Integer id) throws ExceptionUtil {
         if (id == null) {
-            throw new UsuarioDaoException("O valor passado não pode ser nulo.");
+            throw new ExceptionUtil("O valor passado não pode ser nulo.");
         }
         try {
             Usuario usuario = manager.find(Usuario.class, id);
@@ -91,7 +92,7 @@ public class UsuarioDao implements IUsuarioDao {
             manager.remove(usuario);
             manager.getTransaction().commit();
         } catch (Exception e) {
-            throw new UsuarioDaoException("Erro ao excluir dados: " + e.getMessage());
+            throw new ExceptionUtil("Erro ao excluir dados: " + e.getMessage());
         } finally {
             manager.close();
         }
