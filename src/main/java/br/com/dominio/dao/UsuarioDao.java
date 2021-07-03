@@ -9,7 +9,7 @@ import br.com.dominio.model.Usuario;
 import br.com.dominio.util.CriptografiaUtil;
 import br.com.dominio.util.JpaUtil;
 
-public class UsuarioDao {
+public class UsuarioDao implements IUsuarioDao {
 
     EntityManager manager;
     CriptografiaUtil cript = new CriptografiaUtil();
