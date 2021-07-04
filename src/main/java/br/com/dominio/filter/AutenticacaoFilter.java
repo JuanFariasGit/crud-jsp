@@ -19,7 +19,7 @@ public class AutenticacaoFilter implements Filter {
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) req;
         String uri = httpServletRequest.getRequestURI();
-        String uriAdd = uri + "?action=add";
+        String uriAdd = uri + "?action=" + req.getParameter("action");
         HttpSession session = httpServletRequest.getSession();
         
         if (session.getAttribute("login-crud-jsp") != null || uri.endsWith("login.jsp")
