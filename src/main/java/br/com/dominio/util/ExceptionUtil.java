@@ -1,6 +1,7 @@
 package br.com.dominio.util;
 
 public class ExceptionUtil extends Exception {
+
     public ExceptionUtil() {
     }
 

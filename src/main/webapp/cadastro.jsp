@@ -40,13 +40,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="email">E-mail:</label> 
-                                        <input class="form-control" type="email" id="email"
-                                               name="email">
+                                        <input class="form-control" type="email" id="email" name="email">
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Senha:</label> 
-                                        <input class="form-control" type="password" id="password"
-                                               name="password">
+                                        <input class="form-control" type="password" id="password" name="password">
                                     </div>
                                     <hr>
                                     <label>Telefones:</label>

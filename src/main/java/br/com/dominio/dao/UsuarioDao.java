@@ -12,11 +12,12 @@ import br.com.dominio.util.JpaUtil;
 
 public class UsuarioDao implements IUsuarioDao {
 
-    EntityManager manager;
-    CriptografiaUtil cript = new CriptografiaUtil();
+    private final EntityManager manager;
+    private final CriptografiaUtil cript;
 
     public UsuarioDao() {
         this.manager = JpaUtil.getEntityManager();
+        this.cript = new CriptografiaUtil();
     }
 
     @Override
@@ -30,8 +31,6 @@ public class UsuarioDao implements IUsuarioDao {
             manager.getTransaction().commit();
         } catch (Exception e) {
             throw new ExceptionUtil("Erro ao adicionar dados: " + e.getMessage());
-        } finally {
-            manager.close();
         }
     }
 
@@ -76,8 +75,6 @@ public class UsuarioDao implements IUsuarioDao {
             manager.getTransaction().commit();
         } catch (Exception e) {
             throw new ExceptionUtil("Erro ao atualizar dados: " + e.getMessage());
-        } finally {
-            manager.close();
         }
     }
 
@@ -93,8 +90,6 @@ public class UsuarioDao implements IUsuarioDao {
             manager.getTransaction().commit();
         } catch (Exception e) {
             throw new ExceptionUtil("Erro ao excluir dados: " + e.getMessage());
-        } finally {
-            manager.close();
         }
     }
 }

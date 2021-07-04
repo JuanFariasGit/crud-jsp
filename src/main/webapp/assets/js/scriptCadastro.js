@@ -8,8 +8,9 @@ const addUser = (e) => {
     if ((data.get("name") !== "") && (data.get("email") !== "") && (data.get("password") !== "")) {
         $.ajax({
             "method": "POST",
-            "url": url + "/Add",
+            "url": url,
             "data": {
+                "action": "add",
                 "name": data.get("name"),
                 "email": data.get("email"),
                 "password": data.get("password"),

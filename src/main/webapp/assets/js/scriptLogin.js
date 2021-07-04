@@ -1,4 +1,4 @@
-const url = location.origin + "/Login";
+const url = location.origin + "/autenticacao";
 
 const login = (e) => {
     e.preventDefault();
@@ -9,6 +9,7 @@ const login = (e) => {
             "method": "POST",
             "url": url,
             "data": {
+                "action": "login",
                 "email": data.get("email"),
                 "password": data.get("password")
             },

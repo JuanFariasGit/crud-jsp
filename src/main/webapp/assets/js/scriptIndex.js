@@ -6,7 +6,8 @@ const tabela = $("#tabela").DataTable({
     "order": [0, "desc"],
     "ajax": {
         "method": "POST",
-        "url": url + "/List"
+        "url": url,
+        "data": {"action":"list"}
     },
     "columns": [
         {"data": "nome"},
@@ -59,8 +60,9 @@ const addUser = (e) => {
 
         $.ajax({
             "method": "POST",
-            "url": url + "/Add",
+            "url": url,
             "data": {
+                "action": "add",
                 "name": data.get("name"),
                 "email": data.get("email"),
                 "password": data.get("password"),
@@ -111,8 +113,9 @@ const editUser = (e) => {
 
     $.ajax({
         "method": "POST",
-        "url": url + "/Edit",
+        "url": url,
         "data": {
+            "action": "edit",
             "id": data.get("id"),
             "name": data.get("name"),
             "email": data.get("email"),
@@ -144,8 +147,9 @@ const closeModal = () => {
 const delUser = (id) => {
     $.ajax({
         "method": "POST",
-        "url": url + "/Del",
+        "url": url,
         "data": {
+            "action": "del",
             "id": id
         },
         success: function () {
@@ -158,7 +162,8 @@ const delUser = (id) => {
 const logout = () => {
     $.ajax({
         "method": "POST",
-        "url": "/Logout",
+        "url": "/autenticacao",
+        "data": {"action": "logout"},
         success: function () {
             location.replace(location.origin + "/login.jsp");
         }
