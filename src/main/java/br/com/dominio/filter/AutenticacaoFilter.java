@@ -19,11 +19,11 @@ public class AutenticacaoFilter implements Filter {
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) req;
         String uri = httpServletRequest.getRequestURI();
-        String uriAdd = uri + "?action=" + req.getParameter("action");
+        String action = req.getParameter("action");
         HttpSession session = httpServletRequest.getSession();
         
         if (session.getAttribute("login-crud-jsp") != null || uri.endsWith("login.jsp")
-                || uri.endsWith("cadastro.jsp") || uriAdd.endsWith("usuarios?action=add")) {
+                || uri.endsWith("cadastro.jsp") || action.endsWith("add")) {
             chain.doFilter(req, resp);
         } else {
             ((HttpServletResponse) resp).sendRedirect("/login.jsp");
