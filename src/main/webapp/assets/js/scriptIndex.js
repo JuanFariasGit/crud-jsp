@@ -7,7 +7,7 @@ const tabela = $("#tabela").DataTable({
     "ajax": {
         "method": "POST",
         "url": url,
-        "data": {"action":"list"}
+        "data": {"action": "list"}
     },
     "columns": [
         {"data": "nome"},
@@ -69,8 +69,10 @@ const addUser = (e) => {
                 "phones": JSON.stringify(phones)
             },
             "success": function (resp) {
-                closeModalForm();
-                tabela.ajax.reload();
+                Promise.resolve()
+                   .then(alert(resp))
+                   .then(closeModalForm())
+                   .then(tabela.ajax.reload());
             }
         });
     } else {
@@ -123,8 +125,10 @@ const editUser = (e) => {
             "phones": JSON.stringify(phones)
         },
         "success": function (resp) {
-            closeModalForm();
-            tabela.ajax.reload();
+           Promise.resolve()
+                   .then(alert(resp))
+                   .then(closeModalForm())
+                   .then(tabela.ajax.reload());
         }
     });
 };

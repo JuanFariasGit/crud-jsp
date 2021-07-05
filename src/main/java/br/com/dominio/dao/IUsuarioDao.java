@@ -6,8 +6,10 @@ import java.util.List;
 
 interface IUsuarioDao {
     
-   public void criar(Usuario usuario) throws ExceptionUtil;
    public Boolean usuarioExiste(String email, String senha) throws ExceptionUtil;
+   public Boolean emailExistePorEmail(String email) throws ExceptionUtil;
+   public Boolean emailExistePorIdEEmail(Integer id, String email) throws ExceptionUtil;
+   public void criar(Usuario usuario) throws ExceptionUtil;
    public List<Usuario> pegarTodos() throws ExceptionUtil;
    public void atualizar(Usuario usuario) throws ExceptionUtil;
    public void excluir(Integer id) throws ExceptionUtil;

@@ -66,9 +66,14 @@ public class UsuarioService {
         usuario.setTelefones(phones);
 
         try {
-            usuarioDao.criar(usuario);
-            resp.setContentType("text/html;charset=UTF-8");
-            resp.getWriter().write("Usuário cadastrado com successo!");
+            if (!usuarioDao.emailExistePorEmail(usuario.getEmail())) {
+                usuarioDao.criar(usuario);
+                resp.setContentType("text/html;charset=UTF-8");
+                resp.getWriter().write("Usuário cadastrado com successo!");
+            } else {
+                resp.setContentType("text/html;charset=UTF-8");
+                resp.getWriter().write("Já existe um usuário cadastrado com esse e-mail!");
+            }
         } catch (Exception e) {
             throw new ServletException(e);
         }
@@ -86,9 +91,15 @@ public class UsuarioService {
         usuario.setTelefones(phones);
 
         try {
-            usuarioDao.atualizar(usuario);
-            resp.setContentType("text/html;charset=UTF-8");
-            resp.getWriter().write("Usuário cadastrado com successo!");
+            if (usuarioDao.emailExistePorIdEEmail(Integer.parseInt(req.getParameter("id")),
+                    usuario.getEmail()) || !usuarioDao.emailExistePorEmail(usuario.getEmail())) {
+                usuarioDao.atualizar(usuario);
+                resp.setContentType("text/html;charset=UTF-8");
+                resp.getWriter().write("Usuário atualizado com successo!");
+            } else {
+                resp.setContentType("text/html;charset=UTF-8");
+                resp.getWriter().write("Já existe um usuário cadastrado com esse e-mail!");
+            }
         } catch (Exception e) {
             throw new ServletException(e);
         }

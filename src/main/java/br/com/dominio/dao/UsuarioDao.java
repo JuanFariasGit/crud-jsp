@@ -54,6 +54,40 @@ public class UsuarioDao implements IUsuarioDao {
     }
 
     @Override
+    public Boolean emailExistePorEmail(String email) throws ExceptionUtil {
+        if (email == null) {
+            throw new ExceptionUtil("O valor passado não pode ser nulo.");
+        }
+        try {
+            TypedQuery<Usuario> query = manager.createQuery(
+                    "select usuario from Usuario usuario where usuario.email = :email",
+                    Usuario.class).setParameter("email", email);
+
+            int res = query.getResultList().size();
+            return res == 1;
+        } catch (Exception e) {
+            throw new ExceptionUtil(e.getMessage());
+        }
+    }
+    
+    @Override
+    public Boolean emailExistePorIdEEmail(Integer id, String email) throws ExceptionUtil {
+        if (id == null && email == null) {
+           throw new ExceptionUtil("Os valores passados não podem ser nulo."); 
+        }
+        try {
+            TypedQuery<Usuario> query = manager.createQuery(
+                    "select usuario from Usuario usuario where usuario.id = :id and usuario.email = :email",
+                    Usuario.class).setParameter("email", email).setParameter("id", id);
+
+            int res = query.getResultList().size();
+            return res == 1;
+        } catch (Exception e) {
+            throw new ExceptionUtil(e.getMessage());
+        }
+    }
+
+    @Override
     public List<Usuario> pegarTodos() throws ExceptionUtil {
         try {
             List<Usuario> usuarios;
