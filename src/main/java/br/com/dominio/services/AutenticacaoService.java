@@ -1,6 +1,7 @@
 package br.com.dominio.services;
 
 import br.com.dominio.dao.UsuarioDao;
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ public class AutenticacaoService {
         this.usuarioDao = new UsuarioDao();
     }
     
-    public void Login(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+    public void Login(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String email = req.getParameter("email");
         String senha = req.getParameter("password");
         HttpSession session = req.getSession();
@@ -30,7 +31,7 @@ public class AutenticacaoService {
         }
     }
     
-    public void Logout(HttpServletRequest req, HttpServletResponse resp) {
+    public void Logout(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         HttpSession session = req.getSession();
         session.invalidate();
     }

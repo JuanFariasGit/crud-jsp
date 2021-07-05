@@ -7,9 +7,8 @@ const login = (e) => {
     if ((data.get("email") !== "") && (data.get("password") !== "")) {
         $.ajax({
             "method": "POST",
-            "url": url,
+            "url": url + "/login",
             "data": {
-                "action": "login",
                 "email": data.get("email"),
                 "password": data.get("password")
             },

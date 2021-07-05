@@ -1,13 +1,17 @@
 package br.com.dominio.controllers;
 
 import br.com.dominio.services.AutenticacaoService;
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "AutenticacaoController", urlPatterns = {"/autenticacao"})
+@WebServlet(name = "AutenticacaoController", urlPatterns = {
+    "/autenticacao/login",
+    "/autenticacao/logout"
+})
 public class AutenticacaoController extends HttpServlet {
 
     private AutenticacaoService autenticacaoService;
@@ -17,12 +21,12 @@ public class AutenticacaoController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
-        String action = req.getParameter("action");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String uri = req.getRequestURI();
         
-        if (action.equalsIgnoreCase("login")) {
+        if (uri.endsWith("login")) {
             autenticacaoService.Login(req, resp);
-        } else if (action.equalsIgnoreCase("logout")) {
+        } else if (uri.endsWith("logout")) {
             autenticacaoService.Logout(req, resp);
         }
     }

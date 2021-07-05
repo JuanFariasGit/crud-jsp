@@ -1,4 +1,5 @@
-const url = location.origin + "/usuarios";
+const urlUsuarios = location.origin + "/usuarios";
+const urlAutenticacao = location.origin + "/autenticacao";
 
 const tabela = $("#tabela").DataTable({
     "responsive": true,
@@ -6,8 +7,7 @@ const tabela = $("#tabela").DataTable({
     "order": [0, "desc"],
     "ajax": {
         "method": "POST",
-        "url": url,
-        "data": {"action": "list"}
+        "url": urlUsuarios + "/list"
     },
     "columns": [
         {"data": "nome"},
@@ -60,9 +60,8 @@ const addUser = (e) => {
 
         $.ajax({
             "method": "POST",
-            "url": url,
+            "url": urlUsuarios + "/add",
             "data": {
-                "action": "add",
                 "name": data.get("name"),
                 "email": data.get("email"),
                 "password": data.get("password"),
@@ -115,9 +114,8 @@ const editUser = (e) => {
 
     $.ajax({
         "method": "POST",
-        "url": url,
+        "url": urlUsuarios + "/edit",
         "data": {
-            "action": "edit",
             "id": data.get("id"),
             "name": data.get("name"),
             "email": data.get("email"),
@@ -151,9 +149,8 @@ const closeModal = () => {
 const delUser = (id) => {
     $.ajax({
         "method": "POST",
-        "url": url,
+        "url": urlUsuarios + "/del",
         "data": {
-            "action": "del",
             "id": id
         },
         success: function () {
@@ -166,8 +163,7 @@ const delUser = (id) => {
 const logout = () => {
     $.ajax({
         "method": "POST",
-        "url": "/autenticacao",
-        "data": {"action": "logout"},
+        "url": urlAutenticacao + "/logout",
         success: function () {
             location.replace(location.origin + "/login.jsp");
         }

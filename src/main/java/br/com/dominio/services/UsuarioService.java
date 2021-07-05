@@ -6,6 +6,7 @@ import br.com.dominio.model.Usuario;
 import br.com.dominio.util.CriptografiaUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +28,7 @@ public class UsuarioService {
         this.usuario = new Usuario();
     }
 
-    public void list(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+    public void list(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         try {
             List<String> usuarios = new ArrayList<>();
             List<Usuario> todos = usuarioDao.pegarTodos();
@@ -56,7 +57,7 @@ public class UsuarioService {
         }
     }
 
-    public void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+    public void add(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         phones = new Gson().fromJson(req.getParameter("phones"), new TypeToken<List<Telefone>>() {
         }.getType());
 
@@ -80,7 +81,7 @@ public class UsuarioService {
         clean();
     }
 
-    public void edit(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+    public void edit(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         phones = new Gson().fromJson(req.getParameter("phones"), new TypeToken<List<Telefone>>() {
         }.getType());
 
@@ -106,7 +107,7 @@ public class UsuarioService {
         clean();
     }
 
-    public void del(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+    public void del(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         try {
             usuarioDao.excluir(Integer.parseInt(req.getParameter("id")));
         } catch (Exception e) {

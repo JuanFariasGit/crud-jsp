@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "AutenticacaoFilter", urlPatterns= {"/usuarios", "*.jsp"})
+@WebFilter(filterName = "AutenticacaoFilter", urlPatterns= {"/usuarios/*", "*.jsp"})
 public class AutenticacaoFilter implements Filter {
 
     @Override
@@ -19,11 +19,10 @@ public class AutenticacaoFilter implements Filter {
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) req;
         String uri = httpServletRequest.getRequestURI();
-        String uriAdd = uri + "?action=" + req.getParameter("action");
         HttpSession session = httpServletRequest.getSession();
         
         if (session.getAttribute("login-crud-jsp") != null || uri.endsWith("login.jsp")
-                || uri.endsWith("cadastro.jsp") || uriAdd.endsWith("add")) {
+                || uri.endsWith("cadastro.jsp") || uri.endsWith("add")) {
             chain.doFilter(req, resp);
         } else {
             ((HttpServletResponse) resp).sendRedirect("/login.jsp");
