@@ -6,13 +6,16 @@ import javax.persistence.Persistence;
 
 public class JpaUtil {
 
-    private static EntityManagerFactory entityManagerFactory;
-
-    static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("crud-jsp");
-    }
+    private static EntityManagerFactory managerFactory = null;
+    private static EntityManager manager = null;
 
     public static EntityManager getEntityManager() {
-        return entityManagerFactory.createEntityManager();
+        if (managerFactory == null) {
+            managerFactory = Persistence.createEntityManagerFactory("crud-jsp");
+        }
+        if (manager == null) {
+            manager = managerFactory.createEntityManager();
+        }
+        return manager;
     }
 }
