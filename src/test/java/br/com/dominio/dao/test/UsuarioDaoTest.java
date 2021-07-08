@@ -1,4 +1,5 @@
-
+//package br.com.dominio.dao.test;
+//
 //import br.com.dominio.dao.UsuarioDao;
 //import br.com.dominio.model.Telefone;
 //import br.com.dominio.model.Usuario;
@@ -7,15 +8,30 @@
 //import java.util.ArrayList;
 //import java.util.List;
 //import javax.persistence.EntityManager;
+//import org.junit.After;
 //import org.junit.Assert;
+//import org.junit.Before;
 //import org.junit.Test;
 //
 //public class UsuarioDaoTest {
-
+//
+//    EntityManager manager;
+//
+//    public UsuarioDaoTest() {
+//    }
+//    
+//    @Before
+//    public void setUp() {
+//        manager = JpaUtil.getEntityManager();
+//    }
+//
+//    @After
+//    public void tearDown() {
+//        manager.close();
+//    }
+//    
 //    @Test
 //    public void crearTest() throws ExceptionUtil {
-//        EntityManager manager = JpaUtil.getEntityManager();
-//
 //        Usuario usuario = new Usuario();
 //        UsuarioDao usuarioDao = new UsuarioDao();
 //        List<Telefone> telefones = new ArrayList<>();
@@ -37,8 +53,6 @@
 //
 //    @Test
 //    public void atualizarTest() throws ExceptionUtil {
-//        EntityManager manager = JpaUtil.getEntityManager();
-//
 //        Usuario usuario = new Usuario();
 //        UsuarioDao usuarioDao = new UsuarioDao();
 //        List<Telefone> telefones = new ArrayList<>();
@@ -49,7 +63,7 @@
 //        usuario.setSenha("123");
 //
 //        telefones.add(new Telefone(1, "81", "999966808", "Celular"));
-//        telefones.add(new Telefone(2, "81", "999999747", "Celular"));
+//        telefones.add(new Telefone(null, "81", "999999747", "Celular"));
 //        usuario.setTelefones(telefones);
 //
 //        usuarioDao.atualizar(usuario);
