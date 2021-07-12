@@ -20,6 +20,7 @@
                     <div class="col-md-12">
                         <div class="card card-secondary">
                             <div class="card-header">
+                                <%@ include file="partials/loader.jsp"%>
                                 <h3 class="card-title">Login</h3>
                             </div>
                             <form id="form" method="POST">

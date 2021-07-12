@@ -12,6 +12,12 @@ const login = (e) => {
                 "email": data.get("email"),
                 "password": data.get("password")
             },
+            "beforeSend": function() {
+                $("#loader img").show();
+            },
+            "complete": function() {
+                $("#loader img").hide();
+            },
             "success": function (resp) {
                 if (!resp) {
                     location.href = "/";

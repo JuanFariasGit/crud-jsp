@@ -15,6 +15,12 @@ const addUser = (e) => {
                 "password": data.get("password"),
                 "phones": JSON.stringify(phones)
             },
+            "beforeSend": function() {
+                $("#loader img").show();
+            },
+            "complete": function() {
+                $("#loader img").hide();
+            },
             "success": function (resp) {
                 alert(resp);
             }

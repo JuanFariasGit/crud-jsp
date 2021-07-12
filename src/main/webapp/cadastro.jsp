@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div class="card card-secondary">
                             <div class="card-header">
-                                <div id="mensagem"></div>
+                                <%@ include file="partials/loader.jsp"%>
                                 <h3 class="card-title">Cadastro</h3>
                             </div>
                             <form id="form" method="post">
